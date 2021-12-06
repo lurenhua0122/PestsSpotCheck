@@ -52,11 +52,11 @@ class MainActivity : AppCompatActivity() {
         }
         // populate the list for the location display options for the spinner's adapter
         val list = arrayListOf(
-            ItemData("Stop", R.drawable.locationdisplaydisabled),
-            ItemData("On", R.drawable.locationdisplayon),
-            ItemData("Re-Center", R.drawable.locationdisplayrecenter),
-            ItemData("Navigation", R.drawable.locationdisplaynavigation),
-            ItemData("Compass", R.drawable.locationdisplayheading)
+            ItemData(getString(R.string.stop), R.drawable.locationdisplaydisabled),
+            ItemData(getString(R.string.on), R.drawable.locationdisplayon),
+            ItemData(getString(R.string.recenter), R.drawable.locationdisplayrecenter),
+            ItemData(getString(R.string.navigation), R.drawable.locationdisplaynavigation),
+            ItemData(getString(R.string.compass), R.drawable.locationdisplayheading)
         )
 
         spinner.apply {

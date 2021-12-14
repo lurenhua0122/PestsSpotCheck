@@ -5,6 +5,8 @@ import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.view.Window
+import android.view.WindowManager
 import android.widget.AdapterView
 import android.widget.Spinner
 import android.widget.Toast
@@ -34,6 +36,9 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        requestWindowFeature(Window.FEATURE_NO_TITLE)
+        window.addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
+
         setContentView(activityMainBinding.root)
 
         // authentication with an API key or named user is required to access basemaps and other
@@ -56,7 +61,8 @@ class MainActivity : AppCompatActivity() {
             ItemData(getString(R.string.on), R.drawable.locationdisplayon),
             ItemData(getString(R.string.recenter), R.drawable.locationdisplayrecenter),
             ItemData(getString(R.string.navigation), R.drawable.locationdisplaynavigation),
-            ItemData(getString(R.string.compass), R.drawable.locationdisplayheading)
+            ItemData(getString(R.string.compass), R.drawable.locationdisplayheading),
+            ItemData(getString(R.string.check), R.drawable.check)
         )
 
         spinner.apply {
@@ -87,6 +93,9 @@ class MainActivity : AppCompatActivity() {
                             // start compass navigation mode
                             locationDisplay.autoPanMode = LocationDisplay.AutoPanMode.COMPASS_NAVIGATION
                             if (!locationDisplay.isStarted) locationDisplay.startAsync()
+                        }
+                        5 -> {
+                            Toast.makeText(applicationContext,"抽检数据同步成功，请查看地图",Toast.LENGTH_SHORT).show();
                         }
                     }
                 }

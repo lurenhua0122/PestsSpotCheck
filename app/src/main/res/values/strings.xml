@@ -7,4 +7,5 @@
     <string name="recenter">定位</string>
     <string name="navigation">箭头</string>
     <string name="compass">朝向</string>
+    <string name="check">抽检</string>
 </resources>
